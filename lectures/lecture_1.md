@@ -73,6 +73,7 @@ $$
 ### Пример грамматики и непосредственной выводимости
 
 $$G = \left(\{a,b\}, \{S,A\}, \{S \rightarrow Sa, S \rightarrow bAA, A \rightarrow ab, A \rightarrow bA\}, S \right)$$
+
 $$babA \implies_G \,\, babab$$
 
 Так задавать грамматики сложно и громоздко, к тому же во многих правилах одинаковой левой части соответствуют разные правые, поэтому будем обозначать грамматики как только множества правил, а для правил обозначим:
@@ -80,7 +81,8 @@ $$ x \rightarrow y | z = \{x \rightarrow y, x \rightarrow z\}$$
 ---
 
 *def* **Язык, порождаемый $G$**
-> $$L(G) = {w \in \Sigma^* \mid S \implies^*_G \,\, w}$$
+> $$L(G) = {w \in \Sigma^* \mid S \implies^*_G \,\, w}$$  
+> 
 > Множество всех слов над $\Sigma^*$, выводимых в $G$ из $S$
 
 ---
@@ -90,26 +92,21 @@ $$ x \rightarrow y | z = \{x \rightarrow y, x \rightarrow z\}$$
 Хотим получить такой язык:
 
 $$
-L = \{w \mid |w|_a = |w|_b\}
+L = \{w \vert\, |w|_a = |w|_b\}
 $$
 
-где $|w|_a$ — количество символов $a$ в слове $w$
+где $\vert w\vert_a$ — количество символов $a$ в слове $w$
 
 #### Первый способ
 
 $G_1$:
-$$
-S \rightarrow AS\beta|\lambda
-$$
-$$
-AB \rightarrow BA
-$$
-$$
- A \rightarrow a
-$$
-$$
-B \rightarrow b
-$$
+$$S \rightarrow AS\beta|\lambda$$
+
+$$AB \rightarrow BA$$
+
+$$A \rightarrow a$$
+
+$$B \rightarrow b$$
 
 #### Второй способ
 
