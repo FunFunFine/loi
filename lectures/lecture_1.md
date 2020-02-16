@@ -39,13 +39,13 @@ $$
 
 *Очень важные определения*
 
-*def* **Порождающая грамматика** 
-> $G = \left(\Sigma, \Gamma, P, S\right)$, где 
-> 
+*def* **Порождающая грамматика**
+> $G = \left(\Sigma, \Gamma, P, S\right)$, где
+>
 > * $\Sigma$ — основной (терминальный) алфавит
 > * $\Gamma$ — вспомогательный алфавит
-> * $P = \left\{ \alpha \rightarrow  \beta \mid  \alpha \in (\Sigma \cup \Gamma)^*\cdot\Gamma\cdot(\Sigma \cup \Gamma)^* ,\, \beta \in (\Sigma \cup \Gamma)^* \right\}$ — множество правил вывода
-> * $ S \in \Gamma $ — аксиома
+> * $$P = \left\{ \alpha \rightarrow  \beta \mid  \alpha \in \left(\Sigma \cup \Gamma\right)^*\cdot\Gamma\cdot\left(\Sigma\cup \Gamma\right)^* ,\, \beta \in \left(\Sigma \cup \Gamma\right)^* \right\}$$ — множество правил вывода
+> * $S \in \Gamma$ — аксиома
 
 Обозначения:
 
@@ -57,12 +57,17 @@ $$
 Правило вывода — функция, которая показывает, какое слово можно получить из какого, например $aAa \rightarrow bb$. В левой части обязательно должен быть хотя бы один символ из вспомогательного алфавита $\Gamma$.
 
 *def* Слово $\sigma$ **непосредственно выводится** из слова $\gamma$ в грамматике $G = \left(\Sigma, \Gamma, P, S\right)$
+
  $$\sigma {\implies}_G \,\,\gamma $$
+
 > $$\exists \gamma_1, \gamma_2, \alpha, \beta : \gamma = \gamma_1\cdot\beta\cdot\gamma_2, \sigma = \gamma_1\cdot\alpha\cdot\gamma_2  (\alpha \rightarrow \beta) \in G.P$$
+
 Это определение можно транзитивно и рефлексивно замкнуть:
 
 *def* Слово $\sigma$ **выводится** из слова $\gamma$ в грамматике $G = \left(\Sigma, \Gamma, P, S\right)$
- >$$\sigma {\implies}_G^* \,\, \gamma $$
+
+ $$\sigma {\implies}_G^* \,\, \gamma $$
+
  > $$ \exists \eta_0,\eta_1, \dots,\eta_n \in (\Sigma \cup \Gamma)^*,\, \eta_0 = \sigma, \eta_n = \gamma, \forall  \in \left[0, n-1\right], \,\eta_i {\implies}_G \eta_{i+1}$$
 
 ### Пример грамматики и непосредственной выводимости
@@ -75,7 +80,7 @@ $$ x \rightarrow y | z = \{x \rightarrow y, x \rightarrow z\}$$
 ---
 
 *def* **Язык, порождаемый $G$**
-> $L(G) = {w \in \Sigma^* \mid S \implies^*_G \,\, w}$
+> $$L(G) = {w \in \Sigma^* \mid S \implies^*_G \,\, w}$$
 > Множество всех слов над $\Sigma^*$, выводимых в $G$ из $S$
 
 ---
@@ -83,22 +88,37 @@ $$ x \rightarrow y | z = \{x \rightarrow y, x \rightarrow z\}$$
 ### Пример построения грамматики для заданного порождаемого языка
 
 Хотим получить такой язык:
-$$L = \{w \mid |w|_a = |w|_b\}$$
+
+$$
+L = \{w \mid |w|_a = |w|_b\}
+$$
+
 где $|w|_a$ — количество символов $a$ в слове $w$
 
 #### Первый способ
 
 $G_1$:
-$$ S \rightarrow AS\beta|\lambda$$
-$$ AB \rightarrow BA $$
-$$ A \rightarrow a$$
-$$ B \rightarrow b$$
+$$
+S \rightarrow AS\beta|\lambda
+$$
+$$
+AB \rightarrow BA
+$$
+$$
+ A \rightarrow a
+$$
+$$
+B \rightarrow b
+$$
 
 #### Второй способ
 
 $G_2$:
+
 $$ S \rightarrow aB|bA|\lambda$$
+
 $$ B \rightarrow b|aBB|bS$$
+
 $$ A \rightarrow a|bAA|aS$$
 
 Видно, что грамматики $G_1$ и $G_2$ порождают одинаковые языки, но они сильно отличаются по сложности: во втором в левой части правил вывода встречаются сложные выражения, что все только усложняет. Такие грамматики не совсем хороши для нас.
