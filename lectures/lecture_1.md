@@ -54,7 +54,7 @@ math: true
 
 *def* Слово $\sigma$ **непосредственно выводится** из слова $\gamma$ в грамматике $G = \left(\Sigma, \Gamma, P, S\right)$
 
- $$\sigma {\implies}_G \,\,\gamma $$
+ $$\sigma \underset{G}{\implies} \,\,\gamma $$
 
 > $$\exists \gamma_1, \gamma_2, \alpha, \beta : \gamma = \gamma_1\cdot\beta\cdot\gamma_2, \sigma = \gamma_1\cdot\alpha\cdot\gamma_2  (\alpha \rightarrow \beta) \in G.P$$
 
@@ -62,7 +62,7 @@ math: true
 
 *def* Слово $\sigma$ **выводится** из слова $\gamma$ в грамматике $G = \left(\Sigma, \Gamma, P, S\right)$
 
- $$\sigma {\implies}_G^* \,\, \gamma $$
+ $$\sigma \overset{*}{\underset{G}{\implies}} \,\, \gamma $$
 
  > $$ \exists \eta_0,\eta_1, \dots,\eta_n \in (\Sigma \cup \Gamma)^*,\, \eta_0 = \sigma, \eta_n = \gamma, \forall  \in \left[0, n-1\right], \,\eta_i {\implies}_G \eta_{i+1}$$
 
@@ -77,7 +77,7 @@ $$ x \rightarrow y | z = \{x \rightarrow y, x \rightarrow z\}$$
 ---
 
 *def* **Язык, порождаемый $G$**
-> $$L(G) = {w \in \Sigma^* \mid S \implies^*_G \,\, w}$$  
+> $$L(G) = {w \in \Sigma^* \mid S \overset{*}{\underset{G}{\implies}} \,\, w}$$  
 > 
 > Множество всех слов над $\Sigma^*$, выводимых в $G$ из $S$
 
