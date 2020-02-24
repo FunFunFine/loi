@@ -35,7 +35,7 @@ math: true
 
 *Очень важные определения*
 
-*def* **Порождающая грамматика**
+*def  |* **Порождающая грамматика**
 > $G = \left(\Sigma, \Gamma, P, S\right)$, где
 >
 > * $\Sigma$ — основной (терминальный) алфавит
@@ -52,7 +52,7 @@ math: true
 
 Правило вывода — функция, которая показывает, какое слово можно получить из какого, например $aAa \rightarrow bb$. В левой части обязательно должен быть хотя бы один символ из вспомогательного алфавита $\Gamma$.
 
-*def* Слово $\sigma$ **непосредственно выводится** из слова $\gamma$ в грамматике $G = \left(\Sigma, \Gamma, P, S\right)$
+*def  |* Слово $\sigma$ **непосредственно выводится** из слова $\gamma$ в грамматике $G = \left(\Sigma, \Gamma, P, S\right)$
 
  $$\sigma \underset{G}{\implies} \,\,\gamma $$
 
@@ -60,7 +60,7 @@ math: true
 
 Это определение можно транзитивно и рефлексивно замкнуть:
 
-*def* Слово $\sigma$ **выводится** из слова $\gamma$ в грамматике $G = \left(\Sigma, \Gamma, P, S\right)$
+*def  |* Слово $\sigma$ **выводится** из слова $\gamma$ в грамматике $G = \left(\Sigma, \Gamma, P, S\right)$
 
  $$\sigma \overset{*}{\underset{G}{\implies}} \,\, \gamma $$
 
@@ -76,7 +76,7 @@ $$babA \implies_G \,\, babab$$
 $$ x \rightarrow y | z = \{x \rightarrow y, x \rightarrow z\}$$
 ---
 
-*def* **Язык, порождаемый $G$**
+*def  |* **Язык, порождаемый $G$**
 > $$L(G) = {w \in \Sigma^* \mid S \overset{*}{\underset{G}{\implies}} \,\, w}$$  
 > 
 > Множество всех слов над $\Sigma^*$, выводимых в $G$ из $S$
