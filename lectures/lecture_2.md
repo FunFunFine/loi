@@ -91,7 +91,7 @@ $$S \rightarrow (S) \rightarrow (SS) \rightarrow ((S)S) \rightarrow ((S)(S)) \ri
 > *$leafs(T)$ — листья дерева $T$*
 >
 > * $root(T) = root(T')$
-> * $\forall x \in T'$: $x \in leafs(T)$ или $\forall y \in childs(x, \, T) \, : \, \, y \in childs(x, \, T')$
+> * $\forall x \in T'$: $x \in leafs(T)$ или $\forall y \in child(x, \, T) \, : \, \, y \in child(x, \, T')$
 
 То есть для построения стандартного поддерева нужно обязательно взять корень основного дерева и для каждого потомка либо объявлять его листом поддерева, либо брать всех его детей и делать для них то же самое.
 
