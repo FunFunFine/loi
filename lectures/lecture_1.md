@@ -38,7 +38,7 @@ math: true
 >
 > * $\Sigma$ — основной (терминальный) алфавит
 > * $\Gamma$ — вспомогательный алфавит
-> * $$P = \left\{ \alpha \rightarrow  \beta \mid  \alpha \in \left(\Sigma \cup \Gamma\right)^*\cdot\Gamma\cdot\left(\Sigma\cup \Gamma\right)^* ,\, \beta \in \left(\Sigma \cup \Gamma\right)^* \right\}$$ — множество правил вывода
+> * $$P = \left\left\{ \alpha \rightarrow  \beta \mid  \alpha \in \left(\Sigma \cup \Gamma\right)^*\cdot\Gamma\cdot\left(\Sigma\cup \Gamma\right)^* ,\, \beta \in \left(\Sigma \cup \Gamma\right)^* \right\right\}$$ — множество правил вывода
 > * $S \in \Gamma$ — аксиома
 
 Обозначения:
@@ -66,12 +66,12 @@ math: true
 
 ### Пример грамматики и непосредственной выводимости
 
-$$G = \left(\{a,b\}, \{S,A\}, \{S \rightarrow Sa, S \rightarrow bAA, A \rightarrow ab, A \rightarrow bA\}, S \right)$$
+$$G = \left(\left\{a,b\right\}, \left\{S,A\right\}, \left\{S \rightarrow Sa, S \rightarrow bAA, A \rightarrow ab, A \rightarrow bA\right\}, S \right)$$
 
 $$babA \implies_G \,\, babab$$
 
 Так задавать грамматики сложно и громоздко, к тому же во многих правилах одинаковой левой части соответствуют разные правые, поэтому будем обозначать грамматики как только множества правил, а для правил обозначим:
-$$ x \rightarrow y | z = \{x \rightarrow y, x \rightarrow z\}$$
+$$ x \rightarrow y | z = \left\{x \rightarrow y, x \rightarrow z\right\}$$
 ---
 
 ### Df **Язык, порождаемый $G$**
@@ -86,7 +86,7 @@ $$ x \rightarrow y | z = \{x \rightarrow y, x \rightarrow z\}$$
 Хотим получить такой язык:
 
 $$
-L = \{w \vert\, |w|_a = |w|_b\}
+L = \left\{w \vert\, |w|_a = |w|_b\right\}
 $$
 
 где ${\mid w \mid}_a$ — количество символов $a$ в слове $w$

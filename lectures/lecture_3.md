@@ -53,9 +53,9 @@ $$ K \rightarrow K$$
 
 тогда:
 
-$$\Gamma_p = \{S, A, E, B, F\}$$
+$$\Gamma_p = \left\{S, A, E, B, F\right\}$$
 
-$$\Gamma_r = \{S, A, E, B, F, T\}$$
+$$\Gamma_r = \left\{S, A, E, B, F, T\right\}$$
 
 Пример такой, что множества почти совпадают, но это не говорит о связи между производящими символами и достижимыми. Например $T$ — производящий, но недостижимый, а $K$ — достижимый и не производящий (хоть правило явно мусорное, которое его задает).
 
@@ -69,9 +69,9 @@ $$\Gamma_r = \{S, A, E, B, F, T\}$$
 ### Al Построение $\Gamma_p$
 
 >
->* $\Gamma_p = \{A \in \Gamma \vert (A \rightarrow w) \in P, w \in \Sigma^* \}$
+>* $\Gamma_p = \left\{A \in \Gamma \vert (A \rightarrow w) \in P, w \in \Sigma^* \right\}$
 >* пока $\Gamma_p$ не стабильно:
->   * $\Gamma_p = \Gamma_p \cup \{A \in \Gamma \vert (A \rightarrow \gamma) \in P, \gamma \in (\Sigma \cup \Gamma_p)^* \}$
+>   * $\Gamma_p = \Gamma_p \cup \left\{A \in \Gamma \vert (A \rightarrow \gamma) \in P, \gamma \in (\Sigma \cup \Gamma_p)^* \right\}$
 
 стабильно — больше не меняется.
 
@@ -80,9 +80,9 @@ $$\Gamma_r = \{S, A, E, B, F, T\}$$
 ### Al Построение $\Gamma_r$
 
 >
->* $\Gamma_r = \{S\}$
+>* $\Gamma_r = \left\{S\right\}$
 >* пока $\Gamma_r$ не стабильно:
->   * $\Gamma_r = \Gamma_r \cup \{A \in \Gamma \vert (B \rightarrow \alpha A \beta) \in P, B \in \Gamma_r\}$
+>   * $\Gamma_r = \Gamma_r \cup \left\{A \in \Gamma \vert (B \rightarrow \alpha A \beta) \in P, B \in \Gamma_r\right\}$
 
 Опять простыми словами — нужно брать те символы, которые выводимы из некоторого элемента $\Gamma_r$.
 
@@ -90,10 +90,10 @@ $$\Gamma_r = \{S, A, E, B, F, T\}$$
 >
 >* Найти $\Gamma_p$
 >   * $\widehat{G}=$ если $S \notin \Gamma_r$, то $(\Sigma, \emptyset,\emptyset,\emptyset) \overset{L}{=} G$, иначе $(\Sigma, \Gamma, \widehat{P}, S)$,  
->   где $\widehat{P} = \{(A \rightarrow \gamma) \vert (A \rightarrow \gamma) \in P, \gamma \in (\Sigma \cup \Gamma_p)^*\}$
+>   где $\widehat{P} = \left\{(A \rightarrow \gamma) \vert (A \rightarrow \gamma) \in P, \gamma \in (\Sigma \cup \Gamma_p)^*\right\}$
 >* Найти $(\Gamma_p)_r$
 >   * $\widetilde{G} = (\Sigma,(\Gamma_p)_r, \widetilde{P}, S)$,  
->   где $\widetilde{P} = \{ (A \rightarrow\gamma) \vert (A \rightarrow\gamma) \in \widehat{P}, \gamma \in (\Sigma \cup (\Gamma_p)_r)^* \}$
+>   где $\widetilde{P} = \left\{ (A \rightarrow\gamma) \vert (A \rightarrow\gamma) \in \widehat{P}, \gamma \in (\Sigma \cup (\Gamma_p)_r)^* \right\}$
 
 ### Pf Корректность алгоритма
 
@@ -113,11 +113,11 @@ $$ B \rightarrow aSA $$
 
 $$C \rightarrow bC|d $$
 
-1. > $$\Gamma_p = \{S,C\}$$
-   > $$(\Gamma_p)_r = \{S\}$$
+1. > $$\Gamma_p = \left\{S,C\right\}$$
+   > $$(\Gamma_p)_r = \left\{S\right\}$$
    > Как видно, такая грамматика не эквивалентна данной, значит в таком порядке применять не нужно.
-2. > $$\Gamma_r = \{S,A,B,C\}$$
-   > $$(\Gamma_p)_r = \{S,C\}$$
+2. > $$\Gamma_r = \left\{S,A,B,C\right\}$$
+   > $$(\Gamma_p)_r = \left\{S,C\right\}$$
 
 ---
 
@@ -133,7 +133,7 @@ $$C \rightarrow bC|d $$
 
 ### Df Множество аннулирующих символов КСГ $G$
 
-> $Ann(G) = \{A \in \Gamma\,\vert\, A \overset{*}{\underset{G}{\implies}} \lambda\}$
+> $Ann(G) = \left\{A \in \Gamma\,\vert\, A \overset{*}{\underset{G}{\implies}} \lambda\right\}$
 
 ### Пример поиска $Ann(G)$
 
@@ -153,7 +153,7 @@ $$D \rightarrow bE|c$$
 
 $D \rightarrow bE|c$ не позволяет нам добавить $D$ к $Ann(G)$, так как из $D$ обязательно выведется какой-то непустой символ — $b$ или $c$, хотя из $E$ и выводится пустой символ.
 
-$$Ann(G) = \{A,C,B, E, S\} $$
+$$Ann(G) = \left\{A,C,B, E, S\right\} $$
 
 ---
 
@@ -166,9 +166,9 @@ $$\beta \llless \gamma  \iff \beta \text{— подпоследовательн�
 
 >* Найти $Ann(G)$
 >* $\widehat{G}= (\Sigma, \Gamma, \widehat{P}, S)$,  
->   где $\widehat{P} = \{(A \rightarrow \beta) \,\vert \, (A \rightarrow \gamma) \in P, \, \beta \llless \gamma, \, \beta \neq \gamma\}$
+>   где $\widehat{P} = \left\{(A \rightarrow \beta) \,\vert \, (A \rightarrow \gamma) \in P, \, \beta \llless \gamma, \, \beta \neq \gamma\right\}$
 > * если $\lambda \in L(G)$, то  
->   $\widehat{G} = (\Sigma, \Gamma \cup \widehat{S}, \widehat{P} \cup \{(\widehat{S} \rightarrow \lambda), (\widehat{S} \rightarrow S)\}, \widehat{S})$
+>   $\widehat{G} = (\Sigma, \Gamma \cup \widehat{S}, \widehat{P} \cup \left\{(\widehat{S} \rightarrow \lambda), (\widehat{S} \rightarrow S)\right\}, \widehat{S})$
 
 Последний шаг обеспечивает сохранение пустого слова в построенном языке тем, что добавляет новую аксиому к нему и правила перехода из нее в старую.
 
@@ -195,7 +195,7 @@ $$ B \rightarrow BC | ab | \lambda $$
 
 $$ C \rightarrow ac | \lambda $$
 
-$$ Ann(G) = \{B,C,S\}$$
+$$ Ann(G) = \left\{B,C,S\right\}$$
 
 $\widehat{G}$:
 

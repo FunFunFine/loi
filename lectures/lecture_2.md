@@ -15,7 +15,7 @@ math: true
 >
 > $A = \left(\Sigma, \Gamma, \sigma, S, F\right)$, где
 >  $$ \sigma: \left(\Gamma \times \Sigma \right) \rightarrow \Gamma \, \, \vert \, \, A \overset{a}{\rightarrow} B  \iff  \left(A \rightarrow aB \right) \in P $$
-> $$ F = \left\{A \in \Gamma \, \vert \, \exists \left( A \rightarrow \lambda \right ) \in P \right\} $$
+> $$ F = \left\left\{A \in \Gamma \, \vert \, \exists \left( A \rightarrow \lambda \right ) \in P \right\right\} $$
 
 То есть указали правило преобразования грамматики в автомат, причем оно двухстороннее: если есть прямой переход между вершинами $A$ и $B$ по символу $a$, то в грамматике есть правило $\left( A \rightarrow aB \right )$.
 
@@ -23,7 +23,7 @@ math: true
 
 ### Df $G = \left(\Sigma, \Gamma, P, S\right)$ — **контекстно-свободная грамматика**
 
-> $$ P = \left\{ (A \rightarrow \alpha) \, \vert \, A \in \Gamma, \, \alpha \in \left(\Sigma \cup \Gamma\right)^*\cdot\Gamma\cdot\left(\Sigma\cup \Gamma\right)^*\right\} $$
+> $$ P = \left\left\{ (A \rightarrow \alpha) \, \vert \, A \in \Gamma, \, \alpha \in \left(\Sigma \cup \Gamma\right)^*\cdot\Gamma\cdot\left(\Sigma\cup \Gamma\right)^*\right\right\} $$
 
 *Далее $\alpha$ всегда такое — слово над обоими алфавитами и хотя бы одной буквой из нетерминального алфавита.*
 
@@ -46,9 +46,9 @@ math: true
 >
 > $T$ — упорядоченное дерево, для которого выполняются условия:
 >
-> * корень помечен $S$, метки внутренних узлов $m \in \Gamma$, листья $l \in \Sigma\cup\{\lambda\}$, листья с меткой $\lambda$ не имеют соседей.
-> * $x$ — узел, $\{y_1,…,y_k\} = child(x)$, $y_1 \lessdot y_2 \lessdot … \lessdot y_k$, $mark(y_i) = Y_i$, $mark(x) = X$ $\implies$ $X \underset{G}{\implies} Y_1\cdot Y_2\cdot …\cdot Y_n$
-> * $\{z_i \, \vert \, mark(z_i) = A_i, \, z_i \text{— листья } T \}_{i = 1}^{n} \implies w = A_1\cdot A_2\cdot …\cdot A_n$
+> * корень помечен $S$, метки внутренних узлов $m \in \Gamma$, листья $l \in \Sigma\cup\left\{\lambda\right\}$, листья с меткой $\lambda$ не имеют соседей.
+> * $x$ — узел, $\left\{y_1,…,y_k\right\} = child(x)$, $y_1 \lessdot y_2 \lessdot … \lessdot y_k$, $mark(y_i) = Y_i$, $mark(x) = X$ $\implies$ $X \underset{G}{\implies} Y_1\cdot Y_2\cdot …\cdot Y_n$
+> * $\left\{z_i \, \vert \, mark(z_i) = A_i, \, z_i \text{— листья } T \right\}_{i = 1}^{n} \implies w = A_1\cdot A_2\cdot …\cdot A_n$
 
 ### Пример дерева
 
