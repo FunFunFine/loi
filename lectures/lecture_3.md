@@ -35,7 +35,7 @@ math: true
 Пусть $G$ задается так:
 $$S \rightarrow bAc | AcB$$
 
-$$A \rightarrow abc$$
+$$A \rightarrow abc | K$$
 
 $$B \rightarrow Ea$$
 
@@ -47,15 +47,17 @@ $$E \rightarrow Fbb$$
 
 $$F \rightarrow a$$
 
-$$ T \rightarrow b $
+$$ T \rightarrow b $$
+
+$$ K \rightarrow K$$
 
 тогда:
 
 $$\Gamma_p = \{S, A, E, B, F\}$$
 
-$$\Gamma_r = \{S, A, E, B, F\, T}$$
+$$\Gamma_r = \{S, A, E, B, F, T\}$$
 
-Пример такой, что множества почти совпадают, но это не говорит о связи между производящими символами и достижимыми. Например $T$ — производящий, но не достижимый.
+Пример такой, что множества почти совпадают, но это не говорит о связи между производящими символами и достижимыми. Например $T$ — производящий, но недостижимый, а $K$ — достижимый и не производящий (хоть правило явно мусорное, которое его задает).
 
 ---
 Обозначим $G \in \textrm{CFG}$ как $G$ — КСГ, мол $\textrm{CFU}$ — множество всех КСГ.
@@ -194,3 +196,11 @@ $$ B \rightarrow BC | ab | \lambda $$
 $$ C \rightarrow ac | \lambda $$
 
 $$ Ann(G) = \{B,C,S\}$$
+
+$\widehat{G}$:
+
+$$ S \rightarrow BC | C| B | cbd | cd $$
+
+$$ B \rightarrow BC | B | C | ab $$
+
+$$ C \rightarrow ac $$
