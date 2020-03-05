@@ -47,15 +47,20 @@ $$E \rightarrow Fbb$$
 
 $$F \rightarrow a$$
 
+$$ T \rightarrow b $
+
 тогда:
 
-$$\Gamma_p = \{F, A, E, S, B\}$$
+$$\Gamma_p = \{S, A, E, B, F\}$$
 
-$$\Gamma_p = \{F, A, E, S, B\}$$
+$$\Gamma_r = \{S, A, E, B, F\, T}$$
+
+Пример такой, что множества почти совпадают, но это не говорит о связи между производящими символами и достижимыми. Например $T$ — производящий, но не достижимый.
 
 ---
+Обозначим $G \in \textrm{CFG}$ как $G$ — КСГ, мол $\textrm{CFU}$ — множество всех КСГ.
 
-### Th $\forall G$ : $G$ — КСГ $\exists G'$ — приведенная грамматика, такая что  $G \overset{L}{=} G'$  (1)
+### Th $\forall G \in \textrm{CFG} \, \, \exists G'$ — приведенная грамматика, такая что  $G \overset{L}{=} G'$  (1)
 
 Для доказательства приведем два алгоритма:
 
@@ -96,3 +101,96 @@ $$\Gamma_p = \{F, A, E, S, B\}$$
 
 Порядок поиска множеств $\Gamma_p$ и $\Gamma_r$ важен: в таком порядке делать $(\Gamma_r)_p$ будет неверно!
 
+### Пример применения алгоритмов поиска $\Gamma_p$ и $\Gamma_r$
+
+$$S\rightarrow ab|bAc$$
+
+$$A \rightarrow CB $$
+
+$$ B \rightarrow aSA $$
+
+$$C \rightarrow bC|d $$
+
+1. > $$\Gamma_p = \{S,C\}$$
+   > $$(\Gamma_p)_r = \{S\}$$
+   > Как видно, такая грамматика не эквивалентна данной, значит в таком порядке применять не нужно.
+2. > $$\Gamma_r = \{S,A,B,C\}$$
+   > $$(\Gamma_p)_r = \{S,C\}$$
+
+---
+
+## $\lambda$-свободные грамматики
+
+### Df Грамматика $G$ — $\lambda$-свободная
+
+Обозначим как $G \in \textrm{CFG}_{\lambda}$
+> Либо $\forall p \in G.P \,:\, p \neq (A \rightarrow \lambda)$,  
+> либо $(S \rightarrow \lambda) \in G.P$ и $\forall p \in G.P \,:\, \left[\,p = (A \rightarrow \alpha), \, S \notin \alpha\right]$
+
+То есть в грамматике нет символов, из которых напрямую выводится пустое слово, хотя для аксиомы такое разрешается при условии, что нет правил, в правой части которых встречается аксиома.
+
+### Df Множество аннулирующих символов КСГ $G$
+
+> $Ann(G) = \{A \in \Gamma\,\vert\, A \overset{*}{\underset{G}{\implies}} \lambda\}$
+
+### Пример поиска $Ann(G)$
+
+$$S \rightarrow aBC|A$$
+
+$$A \rightarrow bC|\lambda$$
+
+$$B \rightarrow ACA$$
+
+$$C \rightarrow \lambda$$
+
+$$E \rightarrow CA$$
+
+$$D \rightarrow bE|c$$
+
+Первыми берем очевидные символы из которых напрямую выводится пустой символ — $A$ и $C$. Потом те, из которых выводятся слова, содержащие символы,выбранные раньше, и не содержащие терминалы — $B$, $E$ и $S$.
+
+$D \rightarrow bE|c$ не позволяет нам добавить $D$ к $Ann(G)$, так как из $D$ обязательно выведется какой-то непустой символ — $b$ или $c$, хотя из $E$ и выводится пустой символ.
+
+$$Ann(G) = \{A,C,B, E, S\} $$
+
+---
+
+### Th $\forall G \in \textrm{CFU} \, \, \exists \, G' \in \textrm{CFU}_\lambda$ (2)
+
+Для доказательства введем отношение $\llless$ на $(G.\Gamma \cup G.\Sigma)^*$ для некоторой $G \in \textrm{CFG}$:
+$$\beta \llless \gamma  \iff \beta \text{— подпоследовательность } \gamma, \gamma\setminus\beta \in Ann(G) $$
+
+### Al Построение $\lambda$-свободной грамматики $G'$ из $G$
+
+>* Найти $Ann(G)$
+>* $\widehat{G}= (\Sigma, \Gamma, \widehat{P}, S)$,  
+>   где $\widehat{P} = \{(A \rightarrow \beta) \,\vert \, (A \rightarrow \gamma) \in P, \, \beta \llless \gamma, \, \beta \neq \gamma\}$
+> * если $\lambda \in L(G)$, то  
+>   $\widehat{G} = (\Sigma, \Gamma \cup \widehat{S}, \widehat{P} \cup \{(\widehat{S} \rightarrow \lambda), (\widehat{S} \rightarrow S)\}, \widehat{S})$
+
+Последний шаг обеспечивает сохранение пустого слова в построенном языке тем, что добавляет новую аксиому к нему и правила перехода из нее в старую.
+
+### Pf (2)
+
+Опять говорим, что теорема доказывается применением алгоритма, докажем корректность алгоритма — докажем теорему.
+
+> Проверим, что $L(G) = L(\widehat{G})$:
+> возьмем $w \in L(\widehat{G}), \, w \neq \lambda$.
+>
+> $S \overset{*}{\underset{\widehat{G}}{\implies}} w$
+>
+> на каждом шаге машем руками и все получается…
+>
+> **TODO** доказательство упущено, нужно его дописать **TODO**
+
+### Пример построения $\lambda$-свободной грамматики
+
+$G$:
+
+$$ S \rightarrow BC | cBd $$
+
+$$ B \rightarrow BC | ab | \lambda $$
+
+$$ C \rightarrow ac | \lambda $$
+
+$$ Ann(G) = \{B,C,S\}$$
