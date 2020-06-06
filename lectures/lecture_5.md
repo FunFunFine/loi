@@ -50,6 +50,7 @@ math: true
 > $$\exists n_0, d: \,\, \forall n > n_0 \,\, n \in M \implies n+ d \in M $$
 
 ### Th Про унарные языки
+
 > Для $L \subset \left\{a\right\}^*$ следующие условия эквивалентны:
 >
 >1. $L$ — регулярный
@@ -57,6 +58,7 @@ math: true
 >3. $\left\{\vert w \vert \mid w \in L\right\}$ — периодическое множество.
 
 ## Pf
+
 >$1 \rightarrow 2$  — очевидно
 >$2 \rightarrow 3$:
 > Для $L$ выполняется лемма о накачке для $n,m$:
