@@ -69,9 +69,9 @@ $$\Gamma_r = \left\{S, A, E, B, F, T\right\}$$
 ### Al Построение $\Gamma_p$
 
 >
->* $\Gamma_p = \left\{A \in \Gamma \vert (A \rightarrow w) \in P, w \in \Sigma^* \right\}$
+>* $$\Gamma_p = \left\{A \in \Gamma \vert (A \rightarrow w) \in P, w \in \Sigma^* \right\}$$
 >* пока $\Gamma_p$ не стабильно:
->   * $\Gamma_p = \Gamma_p \cup \left\{A \in \Gamma \vert (A \rightarrow \gamma) \in P, \gamma \in (\Sigma \cup \Gamma_p)^* \right\}$
+>   * $$\Gamma_p = \Gamma_p \cup \left\{A \in \Gamma \vert (A \rightarrow \gamma) \in P, \gamma \in (\Sigma \cup \Gamma_p)^* \right\}$$
 
 стабильно — больше не меняется.
 
@@ -80,20 +80,20 @@ $$\Gamma_r = \left\{S, A, E, B, F, T\right\}$$
 ### Al Построение $\Gamma_r$
 
 >
->* $\Gamma_r = \left\{S\right\}$
+>* $$\Gamma_r = \left\{S\right\}$$
 >* пока $\Gamma_r$ не стабильно:
->   * $\Gamma_r = \Gamma_r \cup \left\{A \in \Gamma \vert (B \rightarrow \alpha A \beta) \in P, B \in \Gamma_r\right\}$
+>   * $$\Gamma_r = \Gamma_r \cup \left\{A \in \Gamma \vert (B \rightarrow \alpha A \beta) \in P, B \in \Gamma_r\right\}$$
 
 Опять простыми словами — нужно брать те символы, которые выводимы из некоторого элемента $\Gamma_r$.
 
 ### Al Построение приведенной грамматики $\widehat{G}$
 >
 >* Найти $\Gamma_p$
->   * $\widehat{G}=$ если $S \notin \Gamma_r$, то $(\Sigma, \emptyset,\emptyset,\emptyset) \overset{L}{=} G$, иначе $(\Sigma, \Gamma, \widehat{P}, S)$,  
->   где $\widehat{P} = \left\{(A \rightarrow \gamma) \vert (A \rightarrow \gamma) \in P, \gamma \in (\Sigma \cup \Gamma_p)^*\right\}$
+>   * $$\widehat{G}=$ если $S \notin \Gamma_r$$, то $$(\Sigma, \emptyset,\emptyset,\emptyset) \overset{L}{=} G$$, иначе $$(\Sigma, \Gamma, \widehat{P}, S)$$,  
+>   где $$\widehat{P} = \left\{(A \rightarrow \gamma) \vert (A \rightarrow \gamma) \in P, \gamma \in (\Sigma \cup \Gamma_p)^*\right\}$$
 >* Найти $(\Gamma_p)_r$
->   * $\widetilde{G} = (\Sigma,(\Gamma_p)_r, \widetilde{P}, S)$,  
->   где $\widetilde{P} = \left\{ (A \rightarrow\gamma) \vert (A \rightarrow\gamma) \in \widehat{P}, \gamma \in (\Sigma \cup (\Gamma_p)_r)^* \right\}$
+>   * $$\widetilde{G} = (\Sigma,(\Gamma_p)_r, \widetilde{P}, S)$$,  
+>   где $$\widetilde{P} = \left\{ (A \rightarrow\gamma) \vert (A \rightarrow\gamma) \in \widehat{P}, \gamma \in (\Sigma \cup (\Gamma_p)_r)^* \right\}$$
 
 ### Pf Корректность алгоритма
 
