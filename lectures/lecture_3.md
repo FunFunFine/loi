@@ -166,7 +166,7 @@ $$\beta \llless \gamma  \iff \beta \text{— подпоследовательн�
 
 >* Найти $Ann(G)$
 >* $$\widehat{G}= (\Sigma, \Gamma, \widehat{P}, S)$$,  
->   где $$\widehat{P} = \left\{(A \rightarrow \beta) \,\vert \, (A \rightarrow \gamma) \in P, \, \beta \llless \gamma, \, \beta \neq \gamma\right\}$$
+>   где $$\widehat{P} = \left\{(A \rightarrow \beta) \,\vert \, (A \rightarrow \gamma) \in P, \, \beta \llless \gamma, \, \beta \neq \lambda\right\}$$
 > * если $\lambda \in L(G)$, то  
 >   $$\widehat{G} = (\Sigma, \Gamma \cup \widehat{S}, \widehat{P} \cup \left\{(\widehat{S} \rightarrow \lambda), (\widehat{S} \rightarrow S)\right\}, \widehat{S})$$
 
