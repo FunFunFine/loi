@@ -199,7 +199,7 @@ $$ Ann(G) = \left\{B,C,S\right\}$$
 
 $\widehat{G}$:
 
-$$ S \rightarrow BC | C| B | cbd | cd $$
+$$ S \rightarrow BC | C| B | cBd | cd $$
 
 $$ B \rightarrow BC | B | C | ab $$
 
